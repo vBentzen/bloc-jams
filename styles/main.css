@@ -7,22 +7,9 @@
 	max-width: 64rem;
 }
 
-*, *::before, *::after {
-	-moz-box-sizing:border-box; /* Make all element use border-box(border/padding is counted within the width) */
-	-webkit-box-sizing: border-box;
-	box-sizing:border-box;
-}
 
-
-html {
-     height: 100%; /* makes sure our HTML takes up 100% of the browser window */
-     font-size: 100%;
-}
-
-body {
-     font-family: 'Open Sans'; 
-     color: white;             
-     min-height: 100%;         /* says the height of the body must be, at minimum, 100% of the window */
+.container.narrow {
+	max-width: 56rem;
 }
 
 /*Media queries */
@@ -49,6 +36,25 @@ body {
 @media (min-width: 1024px) {
 	html { font-size: 112%; }
 }
+
+*, *::before, *::after {
+	-moz-box-sizing:border-box; /* Make all element use border-box(border/padding is counted within the width) */
+	-webkit-box-sizing: border-box;
+	box-sizing:border-box;
+}
+
+
+html {
+     height: 100%; /* makes sure our HTML takes up 100% of the browser window */
+     font-size: 100%;
+}
+
+body {
+     font-family: 'Open Sans'; 
+     color: white;             
+     min-height: 100%;         /* says the height of the body must be, at minimum, 100% of the window */
+}
+
  
 
 /* nav section */
