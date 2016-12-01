@@ -3,7 +3,7 @@ body.collection {
 	background-repeat: no-repeat;
 	background-attachment: fixed;/*bg is fixed so when scrolling bg-img doesnt move with content*/
 	background-position: center center;
-	background-size: cover; /* making the background image scale to comver the dimensions of browser */
+	background-size: cover; /* making the background image scale to cover the dimensions of browser */
 }
 
 .album-covers {
@@ -16,7 +16,6 @@ body.collection {
 	margin-bottom: 20px;
 	text-align: center;
 }
-
 
 .collection-album-container .caption {
 	margin-top: 10px;
@@ -33,6 +32,9 @@ body.collection {
 }
 
 .collection-album-container .caption p a.album-name {
-	width: 80%;
+	color: white;
 }
 
+.collection-album-container img {
+	width: 80%;
+}
