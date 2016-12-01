@@ -92,9 +92,21 @@ body {
 	cursor: pointer;
 }
 
+
+
 .links-container .navbar-link:hover {
 	color: rgb(233,50,117);
 }
+
+/* checkpoint 5 assignment */
+
+.links-container .navbar-link:active {
+	color: rgb(233,50,117);
+	background-color:white;
+}
+
+/* checkpoint 5 assignment done */
+
 /* clearfix */
 
 .clearfix::before,
