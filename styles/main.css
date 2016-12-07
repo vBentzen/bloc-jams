@@ -35,18 +35,7 @@
 /* large screens (both laptops and tablets )*/
 @media (min-width: 1024px) {
 	html { font-size: 112%; }
-	/* we only want these 2 on big medie queries */
-.point:nth-child(2) {
-		-webkit-transform: scaleX(0.6) translate3d(0, 100%, 0);
-		 -moz-transform: scaleX(0.6) translate3d(0, 100%, 0);
-          transform: scaleX(0.6) translate3d(0, 100%, 0);
-}
 
-.point:last-child {
-	-webkit-transform: translate3d(100%, 0, 0);
-		 -moz-transform: translate3d(100%, 0, 0);
-          transform: translate3d(100%, 0, 0);
-}
 }
 
 *, *::before, *::after {
