@@ -31,6 +31,22 @@ var albumMarconi = {
   ]
 };
 
+//assignment Example album
+var albumFloyd = {
+  title: 'The Dark Side of the Moon',
+  artist: 'Pink Floyd',
+  label: 'Harvest Records',
+  year: '1973',
+  albumArtUrl: 'assets/images/album_covers/22.png',
+  songs: [
+    { title: 'Speak to Me', duration: '1:30' },
+    { title: 'Breathe', duration: '2:43' },
+    { title: 'On the Run', duration: '3:30'},
+    { title: 'Time', duration: '6:53' },
+    { title: 'The Great Gig in the Sky', duration: '4:15'}
+  ]
+};
+
 // create function to generate song rows
 var createSongRow = function (songNumber, songName, songLength) {
   var template =
@@ -58,7 +74,7 @@ var setCurrentAlbum = function(album) {
   albumTitle.firstChild.nodeValue = album.title;
   albumArtist.firstChild.nodeValue = album.artist;
   albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
-  albumImage.setAttribute = ('src', album.albumArtUrl);
+  albumImage.setAttribute('src', album.albumArtUrl);
 
   // clear list to make sure its empty before we start filling in with songs
   albumSongList.innerHTML = '';
@@ -72,4 +88,15 @@ var setCurrentAlbum = function(album) {
   // calls the function setCurrentAlbum with the album "albumPicasso" when the window loads
 window.onload = function () {
   setCurrentAlbum(albumPicasso);
-};
+
+  var albums = [albumPicasso, albumMarconi, albumFloyd];
+  // we need to choose index 1 as first click, as we are on index 0 , and else we click to same img
+  var index = 1;
+  window.addEventListener('click', function(event) {
+    setCurrentAlbum(albums[index]);
+    index++;
+    if (index == albums.length) {
+      index = 0;
+    }
+  });
+}
