@@ -35,7 +35,11 @@ body.album {
 }
 
 .album-view-song-list {
-	width: 90%
+	width: 90%;
+	margin: 1.5rem auto;
+ font-weight: 300;
+ font-size: 0.75em;
+ border-collapse: collapse;
 }
 
 .album-view-song-item {
@@ -61,7 +65,7 @@ body.album {
 	.album-view-details {
 		text-align: center;
 	}
-	
+
 	.album-view-title {
 		margin-top: 0;
 	}
