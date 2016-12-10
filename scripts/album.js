@@ -69,7 +69,31 @@ var setCurrentAlbum = function(album) {
   }
 };
 
+//create a var using a class(starting from index 0)
+var songListContainer = document.getElementsByClassName('album-view-song-list')[0];
+var songRows = document.getElementsByClassName('album-view-song-item');
+
+//Album button template
+var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
+
   // calls the function setCurrentAlbum with the album "albumPicasso" when the window loads
 window.onload = function () {
   setCurrentAlbum(albumPicasso);
-};
+
+  // targets the mouseover object
+  songListContainer.addEventListener('mouseover', function(event) {
+    //target individual song row during event
+    if (event.target.parentElement.className === 'album-view-song-item') {
+      //using querySelector we target the song-item-number class within its parentElement and change innerhtml to our playButtonTemplate
+      event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
+    }
+  });
+
+  // create a for loop that will remove play button at mouveleave
+  for (var i = 0; i < songRows.length; i++) {
+    songRows[i].addEventListener('mouseleave', function(event) {
+      //selects first child element and overwrites  current value with value from 'data-song-number'
+      this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
+    });
+  }
+}
