@@ -91,9 +91,9 @@ window.onload = function () {
 
   // create a for loop that will remove play button at mouveleave
   for (var i = 0; i < songRows.length; i++) {
-    songRows[i].addEventListener('mouseleave', function(event) {
-      //selects first child element and overwrites  current value with value from 'data-song-number'
-      this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
-    });
+      songRows[i].addEventListener('mouseleave', function(event) {
+        // Selects first child element, which is the song-item-number element
+        this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
+      });
   }
 }
