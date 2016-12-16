@@ -1,4 +1,4 @@
-//generate album objects(create first as nxtpart(template) etc needs to use it)
+//generate album objects(create first as createSongRow Function use information)
 //Example album
 var albumPicasso = {
   title: 'The Colors',
@@ -44,10 +44,10 @@ var createSongRow = function (songNumber, songName, songLength) {
   return template;
 };
 
-//create program to create entire album with songrows when window loads.
+//create cuntion that call when window loads, that takes in 1 of our albums as argument and return to page.
 
 var setCurrentAlbum = function(album) {
-  // we "match" our objects from the album object with our html elements, first the object,and then the child targeted
+  // we "match" our objects from the album object with our html elements, first the object,and then the childIndex targeted
   var albumTitle = document.getElementsByClassName('album-view-title')[0];
   var albumArtist = document.getElementsByClassName('album-view-artist')[0];
   var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
