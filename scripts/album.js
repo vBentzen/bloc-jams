@@ -88,15 +88,21 @@ var setCurrentAlbum = function(album) {
   // calls the function setCurrentAlbum with the album "albumPicasso" when the window loads
 window.onload = function () {
   setCurrentAlbum(albumPicasso);
-
+  //Create a var so we can target the picture for click only.
+  var x = document.getElementsByClassName('album-cover-art')[0];
+  //create array with albums
   var albums = [albumPicasso, albumMarconi, albumFloyd];
-  // we need to choose index 1 as first click, as we are on index 0 , and else we click to same img
-  var index = 1;
-  window.addEventListener('click', function(event) {
-    setCurrentAlbum(albums[index]);
-    index++;
-    if (index == albums.length) {
-      index = 0;
-    }
-  });
-}
+    // we need to choose index 1 as first click, as we are on index 0 , and else we click to same img
+    var index = 1;
+    //add EventListener with click, followed by function that will swap picture
+    x.addEventListener('click', function(event) {
+      //at click, set current album to albums index (that we have set to 1 so it will take picture 2 in queue)
+      setCurrentAlbum(albums[index]);
+      // then we increment the index by 1 for next time.
+      index++;
+      // incase we are at end of albums, we go put index value to 0 so it is ready to start over.
+      if (index == albums.length) {
+        index = 0;
+      }
+    });
+  };
