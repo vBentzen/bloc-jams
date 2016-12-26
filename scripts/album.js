@@ -82,7 +82,7 @@ function findParentByClassName(element, targetClass) {
       elementCurrentParent = elementCurrentParent.parentElement;
     }
   }
-  return findParentByClassName;
+  return elementCurrentParent;
 };
 
 
