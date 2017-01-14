@@ -1,12 +1,22 @@
+//get current song
+function setSong(songNumber){
+  currentlyPlayingSongNumber = songNumber;
+  currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+}
+
+function getSongNumberCell(number) {
+  $('.song-item-number[data-song-number="' + number + '"]');
+}
+
 // create function to generate song rows
 var createSongRow = function (songNumber, songName, songLength) {
   var template =
-      '<tr class="album-view-song-item">'
-      + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
-      + ' <td class="song-item-title">' + songName + '</td>'
-      + ' <td class="song-item-duration">' + songLength + '</td>'
-      + '</tr>'
-      ;
+  '<tr class="album-view-song-item">'
+  + '  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
+  + ' <td class="song-item-title">' + songName + '</td>'
+  + ' <td class="song-item-duration">' + songLength + '</td>'
+  + '</tr>'
+  ;
   var $row = $(template);
 
   var clickHandler = function() {
@@ -14,12 +24,12 @@ var createSongRow = function (songNumber, songName, songLength) {
     var songNumber = parseInt($(this).attr('data-song-number'));
 
     if (currentlyPlayingSongNumber !== null) {
-    // Revert to song number for currently playing song because user started playing new song.
+      // Revert to song number for currently playing song because user started playing new song.
       var currentlyPlayingCell = $('.song-item-number[data-song-number="' + currentlyPlayingSongNumber + '"]');
       currentlyPlayingCell.html(currentlyPlayingSongNumber);
     }
     if (currentlyPlayingSongNumber !== songNumber) {
-    // Switch from Play -> Pause button to indicate new song is playing.
+      // Switch from Play -> Pause button to indicate new song is playing.
       $(this).html(pauseButtonTemplate);
       currentlyPlayingSongNumber = songNumber;
       currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
@@ -177,7 +187,7 @@ var currentSongFromAlbum = null;
 
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
-  // calls the function setCurrentAlbum with the album "albumPicasso" when the window loads
+// calls the function setCurrentAlbum with the album "albumPicasso" when the window loads
 $(document).ready(function() {
   setCurrentAlbum(albumPicasso);
   $previousButton.click(previousSong);
