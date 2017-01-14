@@ -1,3 +1,149 @@
+
+function helloWorld(){
+  var str = "Hello World!";
+  console.log(str);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function mostFrequentItemCount(collection) {
+ var count = 0;
+ var result = 0;
+
+ for (var i = 1; i < collection.length; i++) {
+   for (var k = i; k < collection.length; k++) {
+     if (collection[k] === collection[i]) {
+       count += 1;
+     }
+     if (count > result) {
+       result = count;
+     }
+
+ }
+  count = 0;
+ }
+ return result;
+};
+
+function pitchClass(note){
+// go over the notes, and return them as numbers instead.
+//if the note is a sharp note(example:C#) it should get increased by 1, so c=0 and c#=1
+//if the note is a flat note(example:C♭) it should decrement the number by 1. so c♭=-1 c=0 c#=1
+//instead of ♭ we use b. if no input, return nill.
+
+  switch(note) {
+      case "C":
+      case "B#":
+        return 0;
+      case "C#":
+      case "Db":
+        return 1;
+      case "D":
+        return 2;
+      case "D#":
+      case "Eb":
+        return 3;
+      case "E":
+      case "Fb":
+        return 4;
+      case "E#":
+      case "F":
+        return 5;
+      case "F#":
+      case "Gb":
+        return 6;
+      case "G":
+        return 7;
+      case "G#":
+      case "Ab":
+        return 8;
+      case "A":
+        return 9;
+      case "A#":
+      case "Bb" :
+        return 10;
+      case "Cb":
+      case "B":
+        return 11;
+      default:
+          return null;
+  }
+}
+
+
+
+
+function pitchClass(note){
+// go over the notes, and return them as numbers instead.
+//if the note is a sharp note(example:C#) it should get increased by 1, so c=0 and c#=1
+//if the note is a flat note(example:C♭) it should decrement the number by 1. so c♭=-1 c=0 c#=1
+//instead of ♭ we use b. if no input, return nill.
+  for(var i = 0;i<note.length;i++) {
+    if (note[i] == "C") {
+      return 0;
+    } else if (note[i] == "D") {
+      return 2;
+    } else if (note[i] == "E") {
+      return 4;
+    } else if (note[i] == "F") {
+      return 5;
+    } else if (note[i] == "G") {
+      return 7;
+    } else if (note[i] == "A") {
+      return 9;
+    } else if (note[i] == "B") {
+      return 11;
+    } else return null;
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 String.prototype.toJadenCase = function () {
   var str = this.toString(); // make input a string
   var word = str.toLowerCase().split(" "); // split the string into array of words(a,b,c) and make it all lowercase to start with
@@ -20,7 +166,7 @@ function transposeTwoStrings(arr){
 
   for (var i = 0; i < word.length; i++) {
     var letters = word[i].split('');
-    
+
   }
 };
 
