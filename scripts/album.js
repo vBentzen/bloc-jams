@@ -223,6 +223,7 @@ var togglePlayFromPlayerBar = function() {
       currentSoundFile.pause();
     };
 };
+
 var updateSeekBarWhileSongPlays = function() {
   if (currentSoundFile) {
     currentSoundFile.bind('timeupdate', function(event) {
@@ -288,6 +289,7 @@ var setupSeekBars = function() {
   });
 };
 
+
 //Album button template
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
 var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
@@ -301,7 +303,7 @@ var currentSongFromAlbum = null;
 var currentSoundFile = null;
 var currentVolume = 80;
 
-var $togglePlayFromPlayerBar = $('.main-controls .play-pause');
+$togglePlayFromPlayerBar = $('.main-controls .play-pause');
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
 // calls the function setCurrentAlbum with the album "albumPicasso" when the window loads
