@@ -196,34 +196,20 @@ var previousSong = function() {
 
 var togglePlayFromPlayerBar = function() {
   //if a song is paused and play btn is clicked in player bar
-  //1go change song number cell from play btn to pause btn
-  //2change html of player bars play btn to pause btn
-  //3play the song
-  let playingNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
-  if (currentSoundFile.isPaused()) {
-    //1
-    playingNumberCell.html(pauseButtonTemplate);
-    //2
+  //1, go change icon from play btn to pause btn in page/playerBar
+  //2, play the song
+  //3, else if song is playing, do opposite(player btn and pause song)
+  let songCellNumer = getSongNumberCell(currentlyPlayingSongNumber);
+  if (currentSoundFile && currentSoundFile.isPaused()) {
+    songCellNumer.html(pauseButtonTemplate);
     $togglePlayFromPlayerBar.html(playerBarPauseButton);
-    //3
     currentSoundFile.play();
-  }
-
-  //if song is playing(current sound file is defined) and pause btn is clicked
-  //change song number cell from pause to play btn.
-  //change html of player bar btn from pause to play.
-  //pause the song
-  if (currentSoundFile) {
-    //1
-    playingNumberCell.html(playButtonTemplate);
-    //2
-    $togglePlayFromPlayerBar.html(playerBarPlayButton);
-    //3
-    currentSoundFile.pause();
-  }
+  } else if (currentSoundFile) {
+      songCellNumer.html(playButtonTemplate);
+      $togglePlayFromPlayerBar.html(playerBarPlayButton);
+      currentSoundFile.pause();
+    };
 };
-
-
 
 //Album button template
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
