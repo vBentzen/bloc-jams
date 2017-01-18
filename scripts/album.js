@@ -194,6 +194,18 @@ var previousSong = function() {
   $lastSongNumberCell.html(lastSongNumber);
 };
 
+//update seek bar
+var updateSeekPercentage = function($seekBar, seekBarFillRatio) {
+  var offsetXPercent = seekBarFillRatio * 100;
+
+  offsetXPercent = Math.max(0, offsetXPercent);
+  offsetXPercent = Math.min(100, offsetXPercent);
+
+  var percentageString = offsetXPercent + '%';
+  $seekBar.find('.fill').width(percentageString);
+  $seekBar.find('.thunb').css({left: percentageString});
+};
+
 
 
 //Album button template
