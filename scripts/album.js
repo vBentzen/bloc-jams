@@ -12,13 +12,13 @@ function setSong(songNumber){
     preload: true
   });
 
-  var seek = function(time) {
-    if (currentSoundFile) {
-      currentSoundFile.setTime(time);
-    }
-  }
-
   setVolume(currentVolume);
+};
+
+var seek = function(time) {
+  if (currentSoundFile) {
+    currentSoundFile.setTime(time);
+  }
 };
 
 var setVolume = function(volume) {
@@ -57,7 +57,7 @@ var createSongRow = function (songNumber, songName, songLength) {
       setSong(songNumber);
       //need to play currentSoundFile AFTER calling setSong()
       currentSoundFile.play();
-      updateSeekBarWhileSongPlays()
+      updateSeekBarWhileSongPlays();
       var $volumeFill = $('.volume .fill');
       var $volumeThumb = $('.volume .thumb');
       $volumeFill.width(currentVolume + '%');
