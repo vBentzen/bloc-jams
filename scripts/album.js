@@ -15,6 +15,27 @@ function setSong(songNumber){
   setVolume(currentVolume);
 };
 
+var setCurrentTimeInPlayerBar = function(currentTime) {
+  $('.current-time').text(filterTimeCode(currentSoundFile.getTime()));
+};
+
+var setTotalTimeInPlayerBar = function(totalTime) {
+  $('.total-time').text(filterTimeCode(currentSoundFile.getDuration()));
+};
+
+var filterTimeCode = function(timeInSeconds) {
+ var wholeMin;
+ var wholeSec;
+ var timeInSeconds = parseFloat(timeInSeconds);
+ //round down number
+  timeInSeconds = Math.floor(timeInSeconds);
+// we then need to divide our number with 60, and push result to wholeMin
+// and rest to wholeSec
+  wholeSec = timeInSeconds%60;
+  wholeMin = (timeInSeconds - wholeSec) / 60;
+ return (wholeMin + ':' + wholeSec);
+};
+
 var seek = function(time) {
   if (currentSoundFile) {
     currentSoundFile.setTime(time);
@@ -37,7 +58,7 @@ var createSongRow = function (songNumber, songName, songLength) {
   '<tr class="album-view-song-item">'
   + ' <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
   + ' <td class="song-item-title">' + songName + '</td>'
-  + ' <td class="song-item-duration">' + songLength + '</td>'
+  + ' <td class="song-item-duration">' + filterTimeCode(songLength) + '</td>'
   + '</tr>'
   ;
   var $row = $(template);
@@ -213,8 +234,9 @@ var updateSeekBarWhileSongPlays = function() {
       //fillRatio is equal to songs current time divided by its total duration
       var seekBarFillRatio = this.getTime() / this.getDuration();
       var $seekBar = $('.seek-control .seek-bar');
-
       updateSeekPercentage($seekBar, seekBarFillRatio);
+      setCurrentTimeInPlayerBar();
+      setTotalTimeInPlayerBar();
     });
   }
 };
@@ -271,6 +293,7 @@ var setupSeekBars = function() {
     });
   });
 };
+
 
 
 //Album button template
