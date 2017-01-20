@@ -24,8 +24,6 @@ var setTotalTimeInPlayerBar = function(totalTime) {
 };
 
 var filterTimeCode = function(timeInSeconds) {
- var wholeMin;
- var wholeSec;
  var timeInSeconds = parseFloat(timeInSeconds);
  //round down number
   timeInSeconds = Math.floor(timeInSeconds);
